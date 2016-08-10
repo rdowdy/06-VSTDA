@@ -21,13 +21,13 @@
             <fieldset>
                 <legend><b>Add a To-Do Item</b></legend>
                 <div class="input-field">
-                    <input type="text" id="itemText" ng-model="item.text">
-                    <label for="item">To-Do</label>
+                    <input type="text" id="itemText" ng-model="item.text" required="">
+                    <label for="itemText">To-Do</label>
                 </div>
                 <fieldset>
                     <legend>Priority</legend>
                     <p>
-                      <input ng-model="item.priority" ng-value="priorities.High" class="radioHigh" name="priorityGroup" type="radio" id="highPriority" checked/>
+                      <input ng-model="item.priority" ng-value="priorities.High" class="radioHigh" name="priorityGroup" type="radio" id="highPriority" />
                       <label class="red-text lighten-1" for="highPriority">High</label>
                     </p>
                     <p>
@@ -51,7 +51,7 @@
         </div>
         <table>
             <tr ng-repeat="item in list">
-                <td class="{{item.priority.class}}">{{item.text}}</td>
+                <td ng-class="item.priority.class">{{item.text}}</td>
             </tr>
         </table>
     </div>
