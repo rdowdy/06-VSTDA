@@ -14,8 +14,18 @@
     "test",
     "tests"
   ],
+  "overrides": {
+    "materialize": {
+      "main": [
+        "dist/css/materialize.css",
+        "dist/js/materialize.js"
+      ]
+    }
+  },
   "dependencies": {
     "angular": "^1.5.8",
-    "materialize": "^0.97.7"
+    "mdi": "^1.6.50",
+    "materialize": "^0.97.7",
+    "ng-sortable": "^1.3.6"
   }
 }

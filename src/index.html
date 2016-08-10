@@ -1,23 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="TodoApp">
 <head>
     <meta charset="UTF-8">
     <title>Very Simple TODO App</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/materialize/bin/materialize.css" />
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css" />
+    <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css" />
     <!-- endbower -->
 
     <!-- inject:css -->
     <link rel="stylesheet" href="css/main.css">
     <!-- endinject -->
 </head>
-<body>
-    <h1>A Very Simple To-Do App</h1>
-    
+<body ng-controller="HomeCtrl">
+    <div class="container">
+        <form>
+            <fieldset>
+                <legend><b>Add a To-Do Item</b></legend>
+                <div class="input-field">
+                    <input type="text" id="itemText" ng-model="item.text">
+                    <label for="item">To-Do</label>
+                </div>
+                <div class="input-field">
+                    <select class="browser-default" ng-model="item.priority" ng-options="priority.title for priority in priorities">
+                        <!-- <option value="" disabled selected>Priority</option>
+                        <option value="1" class="red lighten-1">High</option>
+                        <option value="2" class="orange lighten-1">Medium</option>
+                        <option value="3" class="blue lighten-1">Low</option> -->
+                    </select>
+                </div>
+                <button class="btn" ng-click="addTodo()">
+                    <i class="material-icons">add</i>
+                </button>
+            </fieldset>
+        </form>
+        <button class="btn red lighten-1" ng-click="sortBy('highest')">Highest First</button>
+        <button class="btn blue lighten-1" ng-click="sortBy('lowest')">Lowest First</button>
+        <button class="btn" ng-click="sortBy('alphabet')">Alphabetically</button>
+        <table>
+            <tr ng-repeat="item in list">
+                <td class="{{item.priority.class}}">{{item.text}}</td>
+            </tr>
+        </table>
+    </div>
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/materialize/bin/materialize.js"></script>
+    <script src="bower_components/materialize/dist/js/materialize.js"></script>
+    <script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
     <!-- endbower -->
     <!-- inject:js -->
     <script src="js/app.js"></script>

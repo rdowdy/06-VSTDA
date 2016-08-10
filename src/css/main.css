@@ -1,0 +1,14 @@
+/* CSS Resets */
+
+/* Base Styles */
+.high {
+    background: #ef5350; /* red lighten -1 */
+}
+
+.medium {
+    background: #ffca28; /* amber lighten-1 */
+}
+
+.low {
+    background: #42a5f5; /* blue lighten-1 */
+}
