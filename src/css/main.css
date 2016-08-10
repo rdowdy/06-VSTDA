@@ -1,6 +1,11 @@
 /* CSS Resets */
 
 /* Base Styles */
+.btn,
+table {
+    margin-top: 20px;
+}
+
 .high {
     background: #ef5350; /* red lighten -1 */
 }

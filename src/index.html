@@ -37,9 +37,11 @@
                 </button>
             </fieldset>
         </form>
-        <button class="btn red lighten-1" ng-click="sortBy('highest')">Highest First</button>
-        <button class="btn blue lighten-1" ng-click="sortBy('lowest')">Lowest First</button>
-        <button class="btn" ng-click="sortBy('alphabet')">Alphabetically</button>
+        <div class="btnContainer center-align">
+            <button class="btn red lighten-1" ng-click="sortBy('priority.num', false)">Highest First</button>
+            <button class="btn blue lighten-1" ng-click="sortBy('priority.num', true)">Lowest First</button>
+            <button class="btn" ng-click="sortBy('text', false)">Alphabetically</button>
+        </div>
         <table>
             <tr ng-repeat="item in list">
                 <td class="{{item.priority.class}}">{{item.text}}</td>
