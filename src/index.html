@@ -24,14 +24,21 @@
                     <input type="text" id="itemText" ng-model="item.text">
                     <label for="item">To-Do</label>
                 </div>
-                <div class="input-field">
-                    <select class="browser-default" ng-model="item.priority" ng-options="priority.title for priority in priorities">
-                        <!-- <option value="" disabled selected>Priority</option>
-                        <option value="1" class="red lighten-1">High</option>
-                        <option value="2" class="orange lighten-1">Medium</option>
-                        <option value="3" class="blue lighten-1">Low</option> -->
-                    </select>
-                </div>
+                <fieldset>
+                    <legend>Priority</legend>
+                    <p>
+                      <input ng-model="item.priority" ng-value="priorities.High" class="radioHigh" name="priorityGroup" type="radio" id="highPriority" checked/>
+                      <label class="red-text lighten-1" for="highPriority">High</label>
+                    </p>
+                    <p>
+                      <input ng-model="item.priority" ng-value="priorities.Medium" class="radioMedium" name="priorityGroup" type="radio" id="medPriority" />
+                      <label class="orange-text lighten-1" for="medPriority">Medium</label>
+                    </p>
+                    <p>
+                      <input ng-model="item.priority" ng-value="priorities.Low" class="radioLow" name="priorityGroup" type="radio" id="lowPriority"  />
+                      <label class="blue-text lighten-1" for="lowPriority">Low</label>
+                    </p>
+                </fieldset>
                 <button class="btn" ng-click="addTodo()">
                     <i class="material-icons">add</i>
                 </button>
@@ -56,7 +63,6 @@
     <!-- endbower -->
     <!-- inject:js -->
     <script src="js/app.js"></script>
-    <script src="js/form.controller.js"></script>
     <script src="js/home.controller.js"></script>
     <!-- endinject -->
 </body>

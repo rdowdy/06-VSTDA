@@ -6,14 +6,34 @@ table {
     margin-top: 20px;
 }
 
-.high {
+label {
+    width: 100%;
+}
+
+.high,
+[type="radio"].radioHigh:checked + label:after {
     background: #ef5350; /* red lighten -1 */
 }
 
-.medium {
-    background: #ffca28; /* amber lighten-1 */
+.medium,
+[type="radio"].radioMedium:checked + label:after {
+    background: #ffa726; /* orange lighten-1 */
 }
 
-.low {
+.low,
+[type="radio"].radioLow:checked + label:after {
     background: #42a5f5; /* blue lighten-1 */
+}
+
+/* Materialize Custom Styles */
+[type="radio"].radioHigh:checked + label:after {
+    border: #ef5350;
+}
+
+[type="radio"].radioMedium:checked + label:after {
+    border: #ffa726;
+}
+
+[type="radio"].radioLow:checked + label:after {
+    border: #42a5f5;
 }
