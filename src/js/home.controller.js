@@ -23,7 +23,7 @@ angular.module('TodoApp').controller('HomeCtrl', function($scope, $filter) {
     // then reset the input fields
     $scope.addTodo = function() {
         if($scope.item.text.length > 0) {
-            $scope.list.push($scope.item);
+            $scope.list.unshift($scope.item);
             // default 
             $scope.item = {};
             $scope.item.priority = $scope.priorities.High;
