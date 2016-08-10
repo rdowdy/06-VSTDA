@@ -1,6 +1,8 @@
 angular.module('TodoApp').controller('HomeCtrl', function($scope, $filter) {
     $scope.list = [];
     $scope.reverse = false;
+
+    // priorities and their associated datda
     $scope.priorities = {
         "High": {
             class: "high",
@@ -15,9 +17,12 @@ angular.module('TodoApp').controller('HomeCtrl', function($scope, $filter) {
             num: 3
         }
     };
-    // default 
+    // defaults
     $scope.item = {};
     $scope.item.priority = $scope.priorities.High;
+
+    // for the drag and drop list
+    $scope.selected = null;
 
     // add todo item to the todo list
     // then reset the input fields
