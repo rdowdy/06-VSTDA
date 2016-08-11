@@ -22,10 +22,15 @@ angular.module('TodoApp').controller("AddTodoCtrl", function($scope, todoListFac
     // then reset the input fields
     $scope.addTodo = function() {
         if($scope.item.text.length > 0) {
+            // save the selected priority radio
+            var prevPriority = $scope.item.priority;
+
             todoListFactory.addTodoToList($scope.item);
-            // default 
+
+            // reset the form, keeping the most recently
+            // used priority
             $scope.item = {};
-            $scope.item.priority = $scope.priorities.High;
+            $scope.item.priority = prevPriority;
         }
     };
 });
