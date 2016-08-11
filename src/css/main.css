@@ -6,12 +6,9 @@ ul {
     margin-top: 20px;
 }
 
-form label {
-    display: inline-block;
-}
-
 label {
     width: 100%;
+    margin: 5px 0;
 }
 
 .high,
@@ -32,6 +29,7 @@ label {
 ul {
     border: 1px solid black;
     width: 100%;
+    margin-bottom: 60px;
 }
 
 ul li {
@@ -54,14 +52,14 @@ ul h3 {
     position: relative;
 }
 
- ul[dnd-list] .dndDraggingSource {
+ul[dnd-list] .dndDraggingSource {
     display: none;
 }
 
  ul[dnd-list] .dndPlaceholder {
     display: block;
-    background-color: #ddd;
-    min-height: 50px;
+    height: 2px;
+    background-color: black;
 }
 
 /* Materialize Custom Styles */
