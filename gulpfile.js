@@ -17,7 +17,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('inject', function() {
-    var sources = gulp.src(['./src/css/**/*.css', './src/js/**/*.js']);
+    var sources = gulp.src(['./src/css/**/*.css', './src/js/app.js', './src/js/**/*.js']);
 
     gulp.src('./src/index.html')
         .pipe(wiredep())
