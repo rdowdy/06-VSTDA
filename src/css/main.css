@@ -1,6 +1,10 @@
 /* CSS Resets */
 
 /* Base Styles */
+/*.material-icons {
+    display: inline;
+}*/
+/
 .btn,
 ul {
     margin-top: 20px;
@@ -26,24 +30,29 @@ label {
     background: #42a5f5; /* blue lighten-1 */
 }
 
-ul {
+.todoList > ul {
     border: 1px solid black;
     width: 100%;
     margin-bottom: 60px;
 }
 
-ul li {
+.todoList > ul > li {
     padding: 0px;
     margin: 1% 1%;
     z-index: 0;
     width: 98%;
 }
 
+/*ul h5 {
+    display: inline-block;
+}*/
+
 ul h5,
 ul h3 {
     font-weight: bold;
     margin: 0;
     padding: 15px 10px;
+    display: inline-block;
 }
 
 /* Drag and Drop Plugin */
@@ -63,6 +72,12 @@ ul[dnd-list] .dndDraggingSource {
 }
 
 /* Materialize Custom Styles */
+.fixed-action-btn {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
 [type="radio"].radioHigh:checked + label:after {
     border: #ef5350;
 }

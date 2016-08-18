@@ -5,6 +5,18 @@ angular.module('TodoApp').factory("todoListFactory", function($filter) {
             _list.unshift(item);
             return _list;
         },
+        getTodoList: function() {
+            return _list;
+        },
+        editTodo: function(oldTodo, newTodo) {
+            console.log("edited!");
+        },
+        deleteTodo: function(toDelete) {
+            var idx = _list.indexOf(toDelete);
+            if(idx >= 0) {
+                _list.splice(idx, 1);
+            } 
+        },
         // sort the todo list by the given expression
         sortTodoList: function(expression, reverse) {
             // sort first by the expression, then alphabetically

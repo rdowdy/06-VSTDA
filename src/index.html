@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="TodoApp">
+
 <head>
     <meta charset="UTF-8">
     <title>Very Simple TODO App</title>
@@ -7,11 +8,11 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css" />
     <!-- endbower -->
-
     <!-- inject:css -->
     <link rel="stylesheet" href="css/main.css">
     <!-- endinject -->
 </head>
+
 <body ng-controller="AppCtrl">
     <div class="container">
         <form ng-controller="AddTodoCtrl">
@@ -27,7 +28,7 @@
                     <label class="red-text lighten-1" for="highPriority">High</label>
                     <input ng-model="item.priority" ng-value="priorities.Medium" class="radioMedium" name="priorityGroup" type="radio" id="medPriority" />
                     <label class="orange-text lighten-1" for="medPriority">Medium</label>
-                    <input ng-model="item.priority" ng-value="priorities.Low" class="radioLow" name="priorityGroup" type="radio" id="lowPriority"  />
+                    <input ng-model="item.priority" ng-value="priorities.Low" class="radioLow" name="priorityGroup" type="radio" id="lowPriority" />
                     <label class="blue-text lighten-1" for="lowPriority">Low</label>
                 </fieldset>
                 <button class="btn" ng-click="addTodo()">
@@ -43,17 +44,26 @@
             </div>
             <h3>My To-Do List</h3>
             <ul dnd-list="list">
-                <li class="todoItem"
-                    ng-repeat="item in list"
-                    dnd-draggable="item"
-                    dnd-moved="list.splice($index,1)"
-                    dnd-effect-allowed="move"
-                    dnd-selected="selected = item"
-                    ng-class="{'selected':selected === item}">
-                    <h5 ng-class="item.priority.class">
-                    {{item.text}}
-                    </h5>
-                </li>
+                <li class="todoItem" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index,1)" dnd-effect-allowed="move" dnd-selected="selected = item" ng-class="{'selected':selected === item}">
+                    <div ng-class="item.priority.class">
+                        <div class="valign-wrapper">
+                            <h5>{{item.text}}</h5>
+                            <div class="fixed-action-btn horizontal valign">
+                                <a class="btn-floating btn-large red darken-3">
+                                    <i class="large material-icons">mode_edit</i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a class="btn-floating red">
+                                            <i class="material-icons" ng-click="delete(item)">delete</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                     <i class="material-icons">delete</i>
+ --></li>
             </ul>
         </div>
     </div>
@@ -71,4 +81,5 @@
     <script src="js/todolist.factory.js"></script>
     <!-- endinject -->
 </body>
+
 </html>
