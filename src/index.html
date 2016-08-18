@@ -31,7 +31,7 @@
                     <input ng-model="item.priority" ng-value="priorities.Low" class="radioLow" name="priorityGroup" type="radio" id="lowPriority" />
                     <label class="blue-text lighten-1" for="lowPriority">Low</label>
                 </fieldset>
-                <button class="btn" ng-click="addTodo()">
+                <button class="btn indigo darken-3" ng-click="addTodo()">
                     <i class="material-icons">add</i>
                 </button>
             </fieldset>
@@ -40,22 +40,28 @@
             <div class="btnContainer center-align">
                 <button class="btn red lighten-1" ng-click="sortBy('priority.num', false)">Highest First</button>
                 <button class="btn blue lighten-1" ng-click="sortBy('-priority.num', false)">Lowest First</button>
-                <button class="btn" ng-click="sortBy('text', false)">Alphabetically</button>
+                <button class="btn green lighten-1" ng-click="sortBy('text', false)">Alphabetically</button>
             </div>
             <h3>My To-Do List</h3>
             <ul dnd-list="list">
                 <li class="todoItem" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index,1)" dnd-effect-allowed="move" dnd-selected="selected = item" ng-class="{'selected':selected === item}">
                     <div ng-class="item.priority.class">
                         <div class="valign-wrapper">
-                            <h5>{{item.text}}</h5>
+                            <h5 ng-show="!editing">{{item.text}}</h5>
+                            <input type="text" ng-show="editing" ng-model="item.text" ng-blur="editing=false" on-enter="editing=false">
                             <div class="fixed-action-btn horizontal valign">
-                                <a class="btn-floating btn-large red darken-3">
-                                    <i class="large material-icons">mode_edit</i>
+                                <a class="btn-floating btn-large p indigo darken-3">
+                                    <i class="large material-icons">menu</i>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a class="btn-floating red">
+                                        <a class="btn-floating red darken-3">
                                             <i class="material-icons" ng-click="delete(item)">delete</i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="btn-floating blue darken-3">
+                                            <i class="material-icons" ng-click="editing = !editing">edit</i>
                                         </a>
                                     </li>
                                 </ul>
@@ -77,6 +83,7 @@
     <script src="js/app.js"></script>
     <script src="js/addtodo.controller.js"></script>
     <script src="js/app.controller.js"></script>
+    <script src="js/onEnter.directive.js"></script>
     <script src="js/todolist.controller.js"></script>
     <script src="js/todolist.factory.js"></script>
     <!-- endinject -->

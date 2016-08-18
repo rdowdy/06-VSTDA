@@ -5,9 +5,6 @@ angular.module('TodoApp').factory("todoListFactory", function($filter) {
             _list.unshift(item);
             return _list;
         },
-        getTodoList: function() {
-            return _list;
-        },
         editTodo: function(oldTodo, newTodo) {
             console.log("edited!");
         },
