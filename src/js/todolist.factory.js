@@ -1,5 +1,6 @@
-angular.module('TodoApp').factory("todoListFactory", function($filter) {
+angular.module('TodoApp').factory("todoListFactory", function($http, $filter) {
     var _list = [];
+    var port = "58048";
     return {
         addTodoToList: function(item) {
             _list.unshift(item);
@@ -31,7 +32,7 @@ angular.module('TodoApp').factory("todoListFactory", function($filter) {
         },
 
         getTodoList: function() {
-            return _list;
+            return $http.get("http://localhost:" + port + "/api/todo");
         }
     };
 });
