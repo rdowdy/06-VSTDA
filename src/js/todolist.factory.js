@@ -3,17 +3,13 @@ angular.module('TodoApp').factory("todoListFactory", function($http, $filter) {
     var port = "58048";
     return {
         addTodoToList: function(item) {
-            _list.unshift(item);
-            return _list;
+            return $http.post("http://localhost:" + port + "/api/todo", item);
         },
         editTodo: function(oldTodo, newTodo) {
             console.log("edited!");
         },
         deleteTodo: function(toDelete) {
-            var idx = _list.indexOf(toDelete);
-            if(idx >= 0) {
-                _list.splice(idx, 1);
-            } 
+            return $http.delete("http://localhost:" + port + "/api/todo", {"params" : toDelete});
         },
         // sort the todo list by the given expression
         sortTodoList: function(expression, reverse) {
