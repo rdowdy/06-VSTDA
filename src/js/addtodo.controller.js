@@ -1,19 +1,5 @@
 angular.module('TodoApp').controller("AddTodoCtrl", function($scope, $rootScope, todoListFactory) {
-    // priorities and their associated datda
-    $scope.priorities = {
-        "High": {
-            class: "high",
-            num: 1
-        },
-        "Medium": {
-            class: "medium",
-            num: 2
-        },
-        "Low": {
-            class: "low",
-            num: 3
-        }
-    };
+    
     // defaults
     $scope.item = {};
     $scope.item.priority = 1;

@@ -71,6 +71,12 @@ ul[dnd-list] .dndDraggingSource {
     background-color: black;
 }
 
+li input[type=text] {
+    background: rgba(255,255,255,0.17);
+    color: black;
+    font-weight: bold;
+}
+
 /* Materialize Custom Styles */
 .fixed-action-btn {
     position: absolute;

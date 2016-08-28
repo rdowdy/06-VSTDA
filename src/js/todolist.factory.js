@@ -5,8 +5,8 @@ angular.module('TodoApp').factory("todoListFactory", function($http, $filter) {
         addTodoToList: function(item) {
             return $http.post("http://localhost:" + port + "/api/todo", item);
         },
-        editTodo: function(oldTodo, newTodo) {
-            console.log("edited!");
+        editTodo: function(changedTodo) {
+            return $http.put("http://localhost:" + port + "/api/todo", changedTodo);
         },
         deleteTodo: function(toDelete) {
             return $http.delete("http://localhost:" + port + "/api/todo", {"params" : toDelete});

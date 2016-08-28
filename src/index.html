@@ -48,7 +48,7 @@
                     <div ng-class="{high: item.priority === 1, medium: item.priority === 2, low: item.priority === 3}">
                         <div class="valign-wrapper">
                             <h5 ng-show="!editing">{{item.description}}</h5>
-                            <input type="text" ng-show="editing" ng-model="item.text" ng-blur="editing=false" on-enter="editing=false">
+                            <input type="text" ng-show="editing" ng-model="item.description" ng-blur="editing=false; edit(item, true)" on-enter="editing=false; edit(item, true)" >
                             <div class="fixed-action-btn horizontal valign">
                                 <a class="btn-floating btn-large p indigo darken-3">
                                     <i class="large material-icons">menu</i>
@@ -61,7 +61,7 @@
                                     </li>
                                     <li>
                                         <a class="btn-floating blue darken-3">
-                                            <i class="material-icons" ng-click="editing = !editing">edit</i>
+                                            <i class="material-icons" ng-click="editing = !editing; edit(item, !editing)">edit</i>
                                         </a>
                                     </li>
                                 </ul>
