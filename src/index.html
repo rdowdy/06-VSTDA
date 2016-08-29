@@ -47,8 +47,10 @@
                 <li class="todoItem" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index,1)" dnd-effect-allowed="move" dnd-selected="selected = item" ng-class="{'selected':selected === item}">
                     <div ng-class="{high: item.priority === 1, medium: item.priority === 2, low: item.priority === 3}">
                         <div class="valign-wrapper">
-                            <h5 ng-show="!editing">{{item.description}}</h5>
-                            <input type="text" ng-show="editing" ng-model="item.description" ng-blur="editing=false; edit(item, true)" on-enter="editing=false; edit(item, true)" >
+                            <input ng-model="item.completed" type="checkbox">
+                            <span ng-click="item.completed = !item.completed; edit(item, true)"></span>
+                            <h5 ng-show="!editing" ng-class="{completed: item.completed}">{{item.description}}</h5>
+                            <input type="text" ng-show="editing" ng-model="item.description" ng-blur="editing=false; edit(item, true)" on-enter="editing=false; edit(item, true)">
                             <div class="fixed-action-btn horizontal valign">
                                 <a class="btn-floating btn-large p indigo darken-3">
                                     <i class="large material-icons">menu</i>

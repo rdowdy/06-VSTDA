@@ -55,6 +55,10 @@ ul h3 {
     display: inline-block;
 }
 
+.completed {
+    text-decoration: line-through;
+}
+
 /* Drag and Drop Plugin */
  ul[dnd-list],
  ul[dnd-list] > li {
@@ -71,10 +75,36 @@ ul[dnd-list] .dndDraggingSource {
     background-color: black;
 }
 
+/* Editing text input */
 li input[type=text] {
     background: rgba(255,255,255,0.17);
     color: black;
     font-weight: bold;
+}
+
+/* Custom Checkboxes */
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    background: url(checkbox-empty.svg) left top no-repeat;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + span {
+    background: url(checkbox-filled.svg) left top no-repeat;
+}
+
+input[type="checkbox"] + span,
+input[type="checkbox"]:checked + span {
+    background-color: rgba(255,255,255,0.6);
+    margin-left: 5px;
 }
 
 /* Materialize Custom Styles */
