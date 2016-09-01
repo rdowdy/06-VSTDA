@@ -2,7 +2,7 @@
     <fieldset>
         <legend><b>Add a To-Do Item</b></legend>
         <div class="input-field">
-            <input type="text" id="itemText" ng-model="vm.item.description" required="">
+            <input type="text" id="itemText" ng-model="vm.item.description">
             <label for="itemText">To-Do</label>
         </div>
         <fieldset>
@@ -14,7 +14,7 @@
             <input ng-model="vm.item.priority" ng-value="3" class="radioLow" name="priorityGroup" type="radio" id="lowPriority" />
             <label class="blue-text lighten-1" for="lowPriority">Low</label>
         </fieldset>
-        <button class="btn indigo darken-3" ng-click="vm.addItem()">
+        <button class="btn indigo darken-3" ng-click="vm.addItem(vm.item.priority)">
             <i class="material-icons">add</i>
         </button>
     </fieldset>

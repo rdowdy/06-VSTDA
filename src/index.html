@@ -13,26 +13,26 @@
     <!-- endinject -->
 </head>
 
-<body ng-controller="AppCtrl">
+<body>
     <div class="container">
-        <div ng-controller="TodoListCtrl" class="todoList">
+        <div ng-controller="TodoListCtrl as todoList" class="todoList">
             <div class="btnContainer center-align">
-                <button class="btn red lighten-1" ng-click="sortBy('priority', false)">HIGH</button>
-                <button class="btn blue lighten-1" ng-click="sortBy('-priority', false)">LOW</button>
-                <button class="btn green lighten-1" ng-click="sortBy('description', false)">ABC</button>
+                <button class="btn red lighten-1" ng-click="todoList.sortBy('priority', false)">HIGH</button>
+                <button class="btn blue lighten-1" ng-click="todoList.sortBy('-priority', false)">LOW</button>
+                <button class="btn green lighten-1" ng-click="todoList.sortBy('description', false)">ABC</button>
             </div>
             <h3>To-Do</h3>
-            <ul dnd-list="list">
+            <ul dnd-list="todoList.list">
                 <li>
-                    <add-todo add-to-list="addTodo"></add-todo>
+                    <add-todo add-to-list="todoList.addTodo"></add-todo>
                 </li>
-                <li class="todoItem" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index,1)" dnd-effect-allowed="move" dnd-selected="selected = item" ng-class="{'selected':selected === item}">
+                <li class="todoItem" ng-repeat="item in todoList.list" dnd-draggable="item" dnd-moved="todoList.list.splice($index,1)" dnd-effect-allowed="move" dnd-selected="todoList.selected = item" ng-class="{'selected':selected === item}">
                     <div ng-class="{high: item.priority === 1, medium: item.priority === 2, low: item.priority === 3}">
                         <div class="valign-wrapper">
                             <input ng-model="item.completed" type="checkbox">
-                            <span ng-click="item.completed = !item.completed; edit(item, true)"></span>
+                            <span ng-click="item.completed = !item.completed; todoList.edit(item, true)"></span>
                             <h5 ng-show="!editing" ng-class="{completed: item.completed}">{{item.description}}</h5>
-                            <input type="text" ng-show="editing" ng-model="item.description" ng-blur="editing=false; edit(item, true)" on-enter="editing=false; edit(item, true)">
+                            <input type="text" ng-show="editing" ng-model="item.description" ng-blur="editing=false; todoList.edit(item, true)" on-enter="editing=false; todoList.edit(item, true)">
                             <div class="fixed-action-btn horizontal valign">
                                 <a class="btn-floating btn-large p indigo darken-3">
                                     <i class="large material-icons">menu</i>
@@ -40,20 +40,19 @@
                                 <ul>
                                     <li>
                                         <a class="btn-floating red darken-3">
-                                            <i class="material-icons" ng-click="delete(item)">delete</i>
+                                            <i class="material-icons" ng-click="todoList.delete(item, $index)">delete</i>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="btn-floating blue darken-3">
-                                            <i class="material-icons" ng-click="editing = !editing; edit(item, !editing)">edit</i>
+                                            <i class="material-icons" ng-click="editing = !editing; todoList.edit(item, !editing)">edit</i>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <!--                     <i class="material-icons">delete</i>
- --></li>
+                </li>
             </ul>
         </div>
     </div>
@@ -65,12 +64,11 @@
     <!-- endbower -->
     <!-- inject:js -->
     <script src="js/app.js"></script>
-    <script src="js/addtodo.controller.js"></script>
-    <script src="js/addtodo.directive.js"></script>
-    <script src="js/app.controller.js"></script>
-    <script src="js/onEnter.directive.js"></script>
-    <script src="js/todolist.controller.js"></script>
-    <script src="js/todolist.factory.js"></script>
+    <script src="js/addtodo/addtodo.controller.js"></script>
+    <script src="js/addtodo/addtodo.directive.js"></script>
+    <script src="js/common/onEnter.directive.js"></script>
+    <script src="js/todolist/todolist.controller.js"></script>
+    <script src="js/todolist/todolist.factory.js"></script>
     <!-- endinject -->
 </body>
 

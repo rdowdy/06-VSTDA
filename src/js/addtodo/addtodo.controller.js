@@ -13,10 +13,13 @@
         vm.item = {};
         vm.item.priority = 1;
 
-        vm.addItem = function() {
-            vm.addToList()(vm.item);
-            vm.item = {};
-            vm.item.priority = prevPriority;
+        vm.addItem = function(prevPriority) {
+            if(vm.item.description !== undefined &&
+                vm.item.description !== "") {
+                vm.addToList()(vm.item);
+                vm.item = {};
+                vm.item.priority = prevPriority;
+            }
         };
     }
 })();

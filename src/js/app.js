@@ -1,1 +1,8 @@
-angular.module("TodoApp", ['dndLists']);
+(function() {
+    'use strict';
+
+    angular
+        .module('TodoApp', [
+            'dndLists'
+        ]);
+})();

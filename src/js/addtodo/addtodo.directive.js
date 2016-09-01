@@ -17,7 +17,7 @@
             scope: {
                 addToList: "&"
             },
-            templateUrl: "js/addtodo.tmpl.html"
+            templateUrl: "js/addtodo/addtodo.tmpl.html"
         };
         return directive;
     }
