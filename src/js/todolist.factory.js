@@ -1,5 +1,7 @@
 angular.module('TodoApp').factory("todoListFactory", function($http, $filter) {
     var url = "http://localhost:58048/api/todos";
+    // this var is temporary until the list grouping
+    // is set up on the front end
     var defaultGroupId = 12;
     return {
         addTodoToList: function(item) {
