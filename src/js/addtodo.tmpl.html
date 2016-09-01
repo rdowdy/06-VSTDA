@@ -1,1 +1,21 @@
-<h1>{{vm.list}}</h1>
+<form>
+    <fieldset>
+        <legend><b>Add a To-Do Item</b></legend>
+        <div class="input-field">
+            <input type="text" id="itemText" ng-model="vm.item.description" required="">
+            <label for="itemText">To-Do</label>
+        </div>
+        <fieldset>
+            <legend>Priority</legend>
+            <input ng-model="vm.item.priority" ng-value="1" class="radioHigh" name="priorityGroup" type="radio" id="highPriority" />
+            <label class="red-text lighten-1" for="highPriority">High</label>
+            <input ng-model="vm.item.priority" ng-value="2" class="radioMedium" name="priorityGroup" type="radio" id="medPriority" />
+            <label class="orange-text lighten-1" for="medPriority">Medium</label>
+            <input ng-model="vm.item.priority" ng-value="3" class="radioLow" name="priorityGroup" type="radio" id="lowPriority" />
+            <label class="blue-text lighten-1" for="lowPriority">Low</label>
+        </fieldset>
+        <button class="btn indigo darken-3" ng-click="vm.addItem()">
+            <i class="material-icons">add</i>
+        </button>
+    </fieldset>
+</form>

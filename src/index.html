@@ -15,27 +15,6 @@
 
 <body ng-controller="AppCtrl">
     <div class="container">
-        <form ng-controller="AddTodoCtrl">
-            <fieldset>
-                <legend><b>Add a To-Do Item</b></legend>
-                <div class="input-field">
-                    <input type="text" id="itemText" ng-model="item.description" required="">
-                    <label for="itemText">To-Do</label>
-                </div>
-                <fieldset>
-                    <legend>Priority</legend>
-                    <input ng-model="item.priority" ng-value="1" class="radioHigh" name="priorityGroup" type="radio" id="highPriority" />
-                    <label class="red-text lighten-1" for="highPriority">High</label>
-                    <input ng-model="item.priority" ng-value="2" class="radioMedium" name="priorityGroup" type="radio" id="medPriority" />
-                    <label class="orange-text lighten-1" for="medPriority">Medium</label>
-                    <input ng-model="item.priority" ng-value="3" class="radioLow" name="priorityGroup" type="radio" id="lowPriority" />
-                    <label class="blue-text lighten-1" for="lowPriority">Low</label>
-                </fieldset>
-                <button class="btn indigo darken-3" ng-click="addTodo()">
-                    <i class="material-icons">add</i>
-                </button>
-            </fieldset>
-        </form>
         <div ng-controller="TodoListCtrl" class="todoList">
             <div class="btnContainer center-align">
                 <button class="btn red lighten-1" ng-click="sortBy('priority', false)">HIGH</button>
@@ -43,8 +22,10 @@
                 <button class="btn green lighten-1" ng-click="sortBy('description', false)">ABC</button>
             </div>
             <h3>To-Do</h3>
-            <add-todo list="list"></add-todo>
             <ul dnd-list="list">
+                <li>
+                    <add-todo add-to-list="addTodo"></add-todo>
+                </li>
                 <li class="todoItem" ng-repeat="item in list" dnd-draggable="item" dnd-moved="list.splice($index,1)" dnd-effect-allowed="move" dnd-selected="selected = item" ng-class="{'selected':selected === item}">
                     <div ng-class="{high: item.priority === 1, medium: item.priority === 2, low: item.priority === 3}">
                         <div class="valign-wrapper">

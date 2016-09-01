@@ -15,7 +15,7 @@
             controllerAs: 'vm',
             restrict: 'E',
             scope: {
-                list: "="
+                addToList: "&"
             },
             templateUrl: "js/addtodo.tmpl.html"
         };

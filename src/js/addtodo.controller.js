@@ -1,24 +1,22 @@
-angular.module('TodoApp').controller("AddTodoCtrl", function($scope, $rootScope, todoListFactory) {
-    
-    // defaults
-    $scope.item = {};
-    $scope.item.priority = 1;
+(function() {
+    'use strict';
 
-    // add todo item to the todo list
-    // then reset the input fields
-    $scope.addTodo = function() {
-        if($scope.item.description.length > 0) {
-            // save the selected priority radio
-            var prevPriority = $scope.item.priority;
+    angular
+        .module('TodoApp')
+        .controller('AddTodoCtrl', AddTodoCtrl);
 
-            todoListFactory.addTodoToList($scope.item).then(function() {
-                $rootScope.$broadcast("refresh");
-            });
+    AddTodoCtrl.$inject = [];
 
-            // reset the form, keeping the most recently
-            // used priority
-            $scope.item = {};
-            $scope.item.priority = prevPriority;
-        }
-    };
-});
+    /* @ngInject */
+    function AddTodoCtrl() {
+        var vm = this;
+        vm.item = {};
+        vm.item.priority = 1;
+
+        vm.addItem = function() {
+            vm.addToList()(vm.item);
+            vm.item = {};
+            vm.item.priority = prevPriority;
+        };
+    }
+})();
