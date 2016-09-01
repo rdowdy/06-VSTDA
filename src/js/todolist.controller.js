@@ -1,7 +1,9 @@
 angular.module('TodoApp').controller('TodoListCtrl', function($scope, $rootScope, $filter, todoListFactory) {
 
     $scope.addTodo = function(item) {
-        console.log(item);
+        todoListFactory.addTodoToList(item).then(function(response) {
+            $scope.$parent.list.push(response.data);
+        });
     };
     
     $scope.delete = function(item) {
