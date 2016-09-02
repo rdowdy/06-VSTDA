@@ -195,6 +195,10 @@ input[type="checkbox"]:checked + span {
     vertical-align: middle;
 }
 
+.addButtonDiv i {
+    vertical-align: middle;
+}
+
 
 
 .addButtonDiv button:hover {
