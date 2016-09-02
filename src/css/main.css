@@ -1,18 +1,29 @@
 /* CSS Resets */
+
 html {
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
+
 
 /* Base Styles */
+
+
 /*.material-icons {
     display: inline;
 }*/
-/
-.btn,
+
+/ .btn,
 ul {
     margin-top: 20px;
 }
@@ -24,17 +35,19 @@ label {
 
 .high,
 [type="radio"].radioHigh:checked + label:after {
-    background: #ef5350 !important; /* red lighten -1 */
+    background: #ef5350 !important;
+    /* red lighten -1 */
 }
 
 .medium,
 [type="radio"].radioMedium:checked + label:after {
-    background: #ffa726 !important; /* orange lighten-1 */
+    background: #ffa726 !important;
+    /* orange lighten-1 */
 }
 
 .low,
 [type="radio"].radioLow:checked + label:after {
-    background: #42a5f5 !important /* blue lighten-1 */
+    background: #42a5f5 !important/* blue lighten-1 */
 }
 
 .todoList > ul {
@@ -49,6 +62,7 @@ label {
     z-index: 0;
     width: 98%;
 }
+
 
 /*ul h5 {
     display: inline-block;
@@ -66,9 +80,11 @@ ul h3 {
     text-decoration: line-through;
 }
 
+
 /* Drag and Drop Plugin */
- ul[dnd-list],
- ul[dnd-list] > li {
+
+ul[dnd-list],
+ul[dnd-list] > li {
     position: relative;
 }
 
@@ -76,20 +92,24 @@ ul[dnd-list] .dndDraggingSource {
     display: none;
 }
 
- ul[dnd-list] .dndPlaceholder {
+ul[dnd-list] .dndPlaceholder {
     display: block;
     height: 2px;
     background-color: black;
 }
 
+
 /* Editing text input */
+
 li .editingInput {
-    background: rgba(255,255,255,0.17);
+    background: rgba(255, 255, 255, 0.17);
     color: black;
     font-weight: bold;
 }
 
+
 /* Custom Checkboxes */
+
 input[type="checkbox"] {
     display: none;
 }
@@ -110,11 +130,13 @@ input[type="checkbox"]:checked + span {
 
 input[type="checkbox"] + span,
 input[type="checkbox"]:checked + span {
-    background-color: rgba(255,255,255,0.85);
+    background-color: rgba(255, 255, 255, 0.85);
     margin-left: 5px;
 }
 
+
 /* Materialize Custom Styles */
+
 .fixed-action-btn {
     position: absolute;
     right: 10px;
@@ -133,30 +155,36 @@ input[type="checkbox"]:checked + span {
     border: #42a5f5;
 }
 
+
 /* Add Todo */
+.addTodoArea {
+    width: 100%;
+}
+
 .addTodoInput {
     width: 88%;
     display: inline-block;
 }
 
 .addTodoInput input {
+    /* The CSS reset is overriden here by Materialize, which sets the box-sizing to content-box */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+
+    width: 100%;
     padding-left: 2%;
     font-weight: bold;
     margin-bottom: 0;
-    height: 54px;
+    height: 55px;
     font-size: 1.5em;
     vertical-align: middle;
 }
 
-/* label underline focus color */
-.addTodoInput input[type=text]:focus {
-    border-bottom: 1px solid #000;
-    box-shadow: 0 1px 0 0 #000;
-}
-
 .addButtonDiv {
     display: inline-block;
-    width: 11%;
+    width: 12%;
+    margin-left: -4px;
 }
 
 .addButtonDiv button {
@@ -167,27 +195,41 @@ input[type="checkbox"]:checked + span {
     vertical-align: middle;
 }
 
+
+
 .addButtonDiv button:hover {
     opacity: 0.9;
 }
 
+
+/* label underline focus color */
+
+.addTodoInput input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+
 /* Change Placeholder color */
+
 ::-webkit-input-placeholder {
-   color: rgba(0,0,0,0.5);
-   font-weight: bold;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: rgba(0,0,0,0.5);
-   font-weight: bold;  
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: rgba(0,0,0,0.5);
-   font-weight: bold;  
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
-:-ms-input-placeholder {  
-   color: rgba(0,0,0,0.5);
-   font-weight: bold;  
+:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
