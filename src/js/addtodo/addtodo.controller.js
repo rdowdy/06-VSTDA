@@ -21,5 +21,12 @@
                 vm.item.priority = prevPriority;
             }
         };
+
+        vm.nextPriority = function() {
+            vm.item.priority++;
+            if(vm.item.priority === 4) {
+                vm.item.priority = 1;
+            }
+        };
     }
 })();

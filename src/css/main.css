@@ -1,4 +1,11 @@
 /* CSS Resets */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 /* Base Styles */
 /*.material-icons {
@@ -17,17 +24,17 @@ label {
 
 .high,
 [type="radio"].radioHigh:checked + label:after {
-    background: #ef5350; /* red lighten -1 */
+    background: #ef5350 !important; /* red lighten -1 */
 }
 
 .medium,
 [type="radio"].radioMedium:checked + label:after {
-    background: #ffa726; /* orange lighten-1 */
+    background: #ffa726 !important; /* orange lighten-1 */
 }
 
 .low,
 [type="radio"].radioLow:checked + label:after {
-    background: #42a5f5; /* blue lighten-1 */
+    background: #42a5f5 !important /* blue lighten-1 */
 }
 
 .todoList > ul {
@@ -76,7 +83,7 @@ ul[dnd-list] .dndDraggingSource {
 }
 
 /* Editing text input */
-li input[type=text] {
+li .editingInput {
     background: rgba(255,255,255,0.17);
     color: black;
     font-weight: bold;
@@ -124,4 +131,63 @@ input[type="checkbox"]:checked + span {
 
 [type="radio"].radioLow:checked + label:after {
     border: #42a5f5;
+}
+
+/* Add Todo */
+.addTodoInput {
+    width: 88%;
+    display: inline-block;
+}
+
+.addTodoInput input {
+    padding-left: 2%;
+    font-weight: bold;
+    margin-bottom: 0;
+    height: 54px;
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+/* label underline focus color */
+.addTodoInput input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.addButtonDiv {
+    display: inline-block;
+    width: 11%;
+}
+
+.addButtonDiv button {
+    padding: 0;
+    border-radius: 0%;
+    width: 100%;
+    height: 55px;
+    vertical-align: middle;
+}
+
+.addButtonDiv button:hover {
+    opacity: 0.9;
+}
+
+/* Change Placeholder color */
+::-webkit-input-placeholder {
+   color: rgba(0,0,0,0.5);
+   font-weight: bold;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: rgba(0,0,0,0.5);
+   font-weight: bold;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(0,0,0,0.5);
+   font-weight: bold;  
+}
+
+:-ms-input-placeholder {  
+   color: rgba(0,0,0,0.5);
+   font-weight: bold;  
 }

@@ -32,7 +32,7 @@
                             <input ng-model="item.completed" type="checkbox">
                             <span ng-click="item.completed = !item.completed; todoList.edit(item, true)"></span>
                             <h5 ng-show="!editing" ng-class="{completed: item.completed}">{{item.description}}</h5>
-                            <input type="text" ng-show="editing" ng-model="item.description" ng-blur="editing=false; todoList.edit(item, true)" on-enter="editing=false; todoList.edit(item, true)">
+                            <input type="text" class="editingInput" ng-show="editing" ng-model="item.description" ng-blur="editing=false; todoList.edit(item, true)" on-enter="editing=false; todoList.edit(item, true)">
                             <div class="fixed-action-btn horizontal valign">
                                 <a class="btn-floating btn-large p indigo darken-3">
                                     <i class="large material-icons">menu</i>
@@ -67,6 +67,7 @@
     <script src="js/addtodo/addtodo.controller.js"></script>
     <script src="js/addtodo/addtodo.directive.js"></script>
     <script src="js/common/onEnter.directive.js"></script>
+    <script src="js/common/onTab.directive.js"></script>
     <script src="js/todolist/todolist.controller.js"></script>
     <script src="js/todolist/todolist.factory.js"></script>
     <!-- endinject -->
