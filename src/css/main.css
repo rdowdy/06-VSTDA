@@ -103,7 +103,7 @@ input[type="checkbox"]:checked + span {
 
 input[type="checkbox"] + span,
 input[type="checkbox"]:checked + span {
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.85);
     margin-left: 5px;
 }
 
