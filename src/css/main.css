@@ -23,9 +23,17 @@ html {
     display: inline;
 }*/
 
-/ .btn,
-ul {
-    margin-top: 20px;
+.container {
+    margin-top: 25px;
+}
+
+.btnContainer {
+    display: inline-block;
+    float: right;
+}
+
+.btnContainer button {
+    display: block;
 }
 
 label {
@@ -50,10 +58,19 @@ label {
     background: #42a5f5 !important/* blue lighten-1 */
 }
 
+.todoList {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
 .todoList > ul {
     border: 1px solid black;
-    width: 100%;
+    width: 80%;
     margin-bottom: 60px;
+    display: inline-block;
+    margin-top: 0px;
+    float: right;
 }
 
 .todoList > ul > li {
@@ -62,11 +79,6 @@ label {
     z-index: 0;
     width: 98%;
 }
-
-
-/*ul h5 {
-    display: inline-block;
-}*/
 
 ul h5,
 ul h3 {
@@ -157,6 +169,7 @@ input[type="checkbox"]:checked + span {
 
 
 /* Add Todo */
+
 .addTodoArea {
     width: 100%;
 }
@@ -168,10 +181,12 @@ input[type="checkbox"]:checked + span {
 
 .addTodoInput input {
     /* The CSS reset is overriden here by Materialize, which sets the box-sizing to content-box */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box; /* Firefox, other Gecko */
-    box-sizing: border-box; /* Opera/IE 8+ */
-
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
     width: 100%;
     padding-left: 2%;
     font-weight: bold;
@@ -198,8 +213,6 @@ input[type="checkbox"]:checked + span {
 .addButtonDiv i {
     vertical-align: middle;
 }
-
-
 
 .addButtonDiv button:hover {
     opacity: 0.9;
@@ -236,4 +249,10 @@ input[type="checkbox"]:checked + span {
 :-ms-input-placeholder {
     color: rgba(0, 0, 0, 0.5);
     font-weight: bold;
+}
+
+.clearfix {
+    content: "";
+    display: table;
+    clear: both;
 }
