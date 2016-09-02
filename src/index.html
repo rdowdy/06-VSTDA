@@ -18,12 +18,13 @@
         <div ng-controller="TodoListCtrl as todoList">
             <div class="todoList clearfix">
                 <div class="btnContainer center-align">
-                    <button class="btn red lighten-1" ng-click="todoList.sortBy('priority', false)"></button>
-                    <button class="btn blue lighten-1" ng-click="todoList.sortBy('-priority', false)"></button>
+                    <button class="btn high" ng-click="todoList.sortBy('priority', false)"></button>
+                    <button class="btn low" ng-click="todoList.sortBy('-priority', false)"></button>
                     <button class="btn green lighten-1" ng-click="todoList.sortBy('description', false)"></button>
                 </div>
                 <ul class="z-depth-1" dnd-list="todoList.list">
-                    <li><h3>Todo</h3></li>
+                    <li>
+                        <h3>Todo</h3></li>
                     <li>
                         <add-todo add-to-list="todoList.addTodo"></add-todo>
                     </li>
