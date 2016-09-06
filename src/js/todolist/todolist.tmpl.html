@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="todoList col l6 clearfix">
+        <div class="btnContainer center-align">
+            <button class="btn high" ng-click="todoList.sortBy('priority', false)"></button>
+            <button class="btn low" ng-click="todoList.sortBy('-priority', false)"></button>
+            <button class="btn green lighten-1" ng-click="todoList.sortBy('description', false)"></button>
+        </div>
+        <ul class="z-depth-1" dnd-list="todoList.list">
+            <li>
+                <h3>{{todoList.name}}</h3></li>
+            <li>
+                <add-todo add-to-list="todoList.addTodo"></add-todo>
+            </li>
+            <li class="todoItem" ng-repeat="item in todoList.list" dnd-draggable="item" dnd-moved="todoList.list.splice($index,1)" dnd-effect-allowed="move" dnd-selected="todoList.selected = item" ng-class="{'selected':selected === item}">
+                <div ng-class="{high: item.priority === 1, medium: item.priority === 2, low: item.priority === 3}">
+                    <div class="valign-wrapper">
+                        <input ng-model="item.completed" type="checkbox">
+                        <span ng-click="item.completed = !item.completed; todoList.edit(item, true)"></span>
+                        <h5 ng-show="!editing" ng-class="{completed: item.completed}">{{item.description}}</h5>
+                        <input type="text" class="editingInput" ng-show="editing" ng-model="item.description" ng-blur="editing=false; todoList.edit(item, true)" on-enter="editing=false; todoList.edit(item, true)">
+                        <div class="fixed-action-btn horizontal valign">
+                            <a class="btn-floating btn-large p indigo darken-3">
+                                <i class="large material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a class="btn-floating red darken-3">
+                                        <i class="material-icons" ng-click="todoList.delete(item, $index)">delete</i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn-floating blue darken-3">
+                                        <i class="material-icons" ng-click="editing = !editing; todoList.edit(item, !editing)">edit</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

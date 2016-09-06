@@ -5,10 +5,10 @@
         .module('TodoApp')
         .controller('TodoListCtrl', TodoListCtrl);
 
-    TodoListCtrl.$inject = ['$rootScope', '$filter', 'todoListFactory'];
+    TodoListCtrl.$inject = ['$filter', 'todoListFactory'];
 
     /* @ngInject */
-    function TodoListCtrl($rootScope, $filter, todoListFactory) {
+    function TodoListCtrl($filter, todoListFactory) {
         var vm = this;
 
         vm.selected = null;
@@ -17,13 +17,11 @@
         vm.delete = deleteTodo;
         vm.edit = editTodo;
         vm.sortBy = sortBy;
-        vm.refresh = refresh;
-
-        refresh();
 
         ////////////////
 
         function addTodo(item) {
+            item.todoGroupId = vm.id;
             todoListFactory.addTodoToList(item).then(function(response) {
                 vm.list.push(response.data);
             });
@@ -45,12 +43,5 @@
             var expressions = [expression, 'text'];
             vm.list = $filter('orderBy')(vm.list, expressions, reverse);
         }
-
-        function refresh() {
-            todoListFactory.getTodoList().then(function(response) {
-                vm.list = response.data;
-            });
-        }
-
     }
 })();
