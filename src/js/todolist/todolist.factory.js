@@ -17,7 +17,8 @@
             editTodo: editTodo,
             deleteTodo: deleteTodo,
             getTodoList: getTodoList,
-            getAllTodoGroups: getAllTodoGroups
+            getAllTodoGroups: getAllTodoGroups,
+            addNewTodoGroup: addNewTodoGroup
         };
         return service;
 
@@ -39,6 +40,10 @@
 
         function getAllTodoGroups() {
             return $http.get(url + "/todogroups");
+        }
+
+        function addNewTodoGroup(group) {
+            return $http.post(url + "/todogroups", group);
         }
     }
 })();
