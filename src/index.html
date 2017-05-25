@@ -33,7 +33,7 @@
                             <div class="valign-wrapper">
                                 <input ng-model="item.completed" type="checkbox">
                                 <span ng-click="item.completed = !item.completed; todoList.edit(item, true)"></span>
-                                <h5 ng-show="!editing" ng-class="{completed: item.completed}">{{item.description}}</h5>
+                                <h5 ng-show="!editing" ng-class="{completed: item.completed}" ng-bind="item.description"></h5>
                                 <input type="text" class="editingInput" ng-show="editing" ng-model="item.description" ng-blur="editing=false; todoList.edit(item, true)" on-enter="editing=false; todoList.edit(item, true)">
                                 <div class="fixed-action-btn horizontal valign">
                                     <a class="btn-floating btn-large p indigo darken-3">
@@ -59,6 +59,7 @@
             </div>
         </div>
     </div>
+    <script src="js/common/uuid.js"></script>
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>

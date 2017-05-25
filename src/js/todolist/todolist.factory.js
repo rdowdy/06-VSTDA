@@ -9,10 +9,6 @@
 
     /* @ngInject */
     function todoListFactory($filter, $http) {
-        var url = "http://localhost:58048/api/todos";
-        // this var is temporary until the list grouping
-        // is set up on the front end
-        var defaultGroupId = 12;
         var service = {
             addTodoToList: addTodoToList,
             editTodo: editTodo,
@@ -22,20 +18,41 @@
         return service;
 
         function addTodoToList(item) {
-            item.todoGroupId = 12;
-            return $http.post(url, item);
+            var todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+            item.todoId = UUIDjs.create(4).hex;
+            todos.push(item);
+
+            localStorage.setItem("todos", JSON.stringify(todos));
+            return todos;
         }
 
         function editTodo(changedTodo) {
-            return $http.put(url + "/" + changedTodo.todoId, changedTodo);
+            var todos = JSON.parse(localStorage.getItem("todos"));
+
+            var todoIndex = todos.findIndex((element) => {
+                return element.todoId === changedTodo.todoId;
+            });
+
+            todos[todoIndex] = changedTodo;
+            localStorage.setItem("todos", JSON.stringify(todos));
+            return todos;
         }
 
         function deleteTodo(toDelete) {
-            return $http.delete(url + "/" + toDelete.todoId);
+            var todos = JSON.parse(localStorage.getItem("todos"));
+
+            var todoIndex = todos.findIndex((element) => {
+                return element.todoId === toDelete.todoId;
+            });
+
+            todos.splice(todoIndex, 1);
+            localStorage.setItem("todos", JSON.stringify(todos));
+            return todos;
         }
 
         function getTodoList() {
-            return $http.get(url);
+            return JSON.parse(localStorage.getItem("todos")) || [];
         }
     }
 })();

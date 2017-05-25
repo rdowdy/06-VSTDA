@@ -24,15 +24,11 @@
         ////////////////
 
         function addTodo(item) {
-            todoListFactory.addTodoToList(item).then(function(response) {
-                vm.list.push(response.data);
-            });
+            vm.list = todoListFactory.addTodoToList(item);
         }
 
         function deleteTodo(item, index) {
-            todoListFactory.deleteTodo(item).then(function() {
-                vm.list.splice(index, 1);
-            });
+            vm.list = todoListFactory.deleteTodo(item);
         }
 
         function editTodo(item, isDoneEditing) {
@@ -47,9 +43,7 @@
         }
 
         function refresh() {
-            todoListFactory.getTodoList().then(function(response) {
-                vm.list = response.data;
-            });
+            vm.list = todoListFactory.getTodoList();
         }
 
     }
