@@ -1,7 +1,10 @@
 <form>
     <div class="addTodoArea">
+        <div class="addTodoTooltip">
+            <i>Hit 'Tab' to change todo priority</i>
+        </div>
         <div class="addTodoInput">
-            <input type="text" id="itemText" ng-model="vm.item.description" ng-class="{high: vm.item.priority === 1, medium: vm.item.priority === 2, low: vm.item.priority === 3}" on-tab="vm.nextPriority();" placeholder="Add Todo">
+            <input type="text" id="itemText" ng-model="vm.item.description" ng-class="{high: vm.item.priority === 1, medium: vm.item.priority === 2, low: vm.item.priority === 3}" on-tab="vm.nextPriority();" placeholder="Add New Todo">
         </div>
         <div class="addButtonDiv">
             <button class="btn indigo darken-3 z-depth-0" ng-click="vm.addItem(vm.item.priority)">

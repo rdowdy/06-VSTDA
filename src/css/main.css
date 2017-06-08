@@ -93,6 +93,10 @@ h3, h5 {
     vertical-align: middle;
 }
 
+.addTodoTooltip {
+    color: #777;
+}
+
 .addButtonDiv {
     display: inline-block;
     width: 12%;
